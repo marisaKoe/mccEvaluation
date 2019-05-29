@@ -52,7 +52,7 @@ def find_optimal_method(method):
         method_max_score = max(score_dict, key=lambda k: score_dict[k])
         eval_dict[method_max_score]+=1
     
-    print eval_dict
+    #print eval_dict
     
     f = open("output/"+method+"_finalScores.csv","w")
     for method, score in eval_dict.items():
