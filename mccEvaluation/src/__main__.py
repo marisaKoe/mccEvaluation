@@ -52,6 +52,8 @@ def find_optimal_method(method):
         method_max_score = max(score_dict, key=lambda k: score_dict[k])
         eval_dict[method_max_score]+=1
     
+    print eval_dict
+    
     f = open("output/"+method+"_finalScores.csv","w")
     for method, score in eval_dict.items():
         f.write(method+"\t"+str(score)+"\n")
@@ -65,9 +67,11 @@ def find_optimal_method(method):
 
 
 if __name__ == '__main__':
-    ##methods names: mccPMI, mccML, mccMB
+    ##methods names: DBcog, DBwords, CBml, CBmb
     #read_files("mccPMI")
-    find_optimal_method("mccPMI")
+    list_methods=["DBcog","DBwords"]
+    for method in list_methods:
+        find_optimal_method(method)
     
     
     
