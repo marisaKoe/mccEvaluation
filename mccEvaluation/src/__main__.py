@@ -69,10 +69,11 @@ def find_optimal_method(method):
 if __name__ == '__main__':
     ##methods names: DBcog, DBwords, CBml, CBmb
     #read_files("mccPMI")
-    list_methods=["DBcog","DBwords"]
+    #list_methods=["DBcog","DBwords"]
+    list_methods=["ML","DB"]
     for method in list_methods:
         find_optimal_method(method)
-    
+        
     
     
     
