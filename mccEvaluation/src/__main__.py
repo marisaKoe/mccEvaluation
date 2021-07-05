@@ -56,7 +56,6 @@ def read_files_ML():
         raw_data = f.readlines()
         f.close()
         method = fileName.split(".")[0].split("/")[-1].split("+")[-1]
-        #print method
         eval_dict[method]=0
         
         for l in raw_data:
@@ -66,7 +65,6 @@ def read_files_ML():
                 mcc_score=float(l[1])
                 
                 mcc_dict[concept][method]=mcc_score
-                #print concept
             else:
                 concept = l[0].split("_")[-1]
                 #print concept
@@ -104,10 +102,8 @@ def read_files_MB():
                 mcc_score=float(l[1])
                 
                 mcc_dict[concept][method]=mcc_score
-                #print concept
             else:
                 concept = l[0].split("_")[-1]
-                #print concept
 
                 mcc_score=float(l[1])
                 mcc_dict[concept][method]=mcc_score
@@ -124,15 +120,12 @@ def find_optimal_method(mcc_dict, eval_dict, method):
     :return dict: eval
     '''
     
-    #elif method == "MB":
-    #    mcc_dict, eval_dict = read_files_MB(method)
     print len(mcc_dict)
     for concept, score_dict in mcc_dict.items():
-        #print len(score_dict)
         method_max_score = max(score_dict, key=lambda k: score_dict[k])
         eval_dict[method_max_score]+=1
     
-    #print eval_dict
+
     
     f = open("output/"+method+"_finalScores.csv","w")
     for method, score in eval_dict.items():
@@ -148,7 +141,6 @@ def find_optimal_method(mcc_dict, eval_dict, method):
 
 if __name__ == '__main__':
     ##methods names: DBcog, DBwords, CBml, CBmb
-    #read_files("mccPMI")
     #list_methods=["DBcog","DBwords"]
     list_methods=["MB"]
     for method in list_methods:
