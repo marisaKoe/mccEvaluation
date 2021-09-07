@@ -119,8 +119,6 @@ def find_optimal_method(mcc_dict, eval_dict, method):
     :param metohd: name of the method block
     :return dict: eval
     '''
-    
-    print len(mcc_dict)
     for concept, score_dict in mcc_dict.items():
         method_max_score = max(score_dict, key=lambda k: score_dict[k])
         eval_dict[method_max_score]+=1
